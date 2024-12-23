@@ -222,7 +222,7 @@ export default function Page() {
         </Box>
       </Box>
 
-      <Container>
+      <Container sx={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",p:2}} maxWidth="md">
         <Typography variant="h4" align="center" gutterBottom>
           Get in Touch
         </Typography>
@@ -232,7 +232,7 @@ export default function Page() {
           style={{ display: "flex", flexDirection: "column", gap: "20px" }}
           onSubmit={handleSubmit}
           noValidate
-          sx={{ mt: 1 }}
+          sx={{ mt: 1 ,}}
         >
           {/* Name */}
 

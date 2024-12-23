@@ -147,7 +147,7 @@ const ContactModal = ({open,setOpen}) => {
 
             {/* Action Buttons */}
             <Box display="flex" justifyContent="end" gap="20px">
-              <Button onClick={handleClose} color="secondary">
+              <Button onClick={handleClose} sx={{color:"black"}} variant="outlined">
                 Cancel
               </Button>
               <Button

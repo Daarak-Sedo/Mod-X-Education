@@ -9,9 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^5.16.11",
+    "@mui/material": "^5.16.11",
+    "@mui/material-nextjs": "^6.2.0",
+    "aos": "^2.3.4",
+    "formik": "^2.4.6",
+    "next": "14.2.20",
     "react": "^18",
+    "react-countup": "^6.5.3",
     "react-dom": "^18",
-    "next": "14.2.20"
+    "react-fast-marquee": "^1.6.5",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
+    "yup": "^1.6.0"
   },
   "devDependencies": {
     "eslint": "^8",

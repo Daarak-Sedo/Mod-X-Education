@@ -15,6 +15,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   Grid,
+  Autocomplete
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -25,33 +26,52 @@ import * as Yup from "yup";
 import CloseIcon from "@mui/icons-material/Close";
 
 export default function Page() {
-  const faqData = [
-    {
-      question: "What are your business hours?",
-      answer:
-        "Our business hours are Monday to Friday, 9:00 AM to 5:00 PM (EST).",
-    },
-    {
-      question: "How can I track my order?",
-      answer:
-        'You can track your order by logging into your account and visiting the "Order History" section.',
-    },
-    {
-      question: "Do you offer international shipping?",
-      answer:
-        "Yes, we offer international shipping to select countries. Please check our shipping policy for more details.",
-    },
-    {
-      question: "What is your return policy?",
-      answer:
-        "We offer a 30-day return policy for most items. Please refer to our returns page for full details and conditions.",
-    },
-  ];
+    const faqData = [
+        {
+          question: "What are your business hours?",
+          answer: "Our business hours are Monday to Friday, 9:00 AM to 5:00 PM (EST).",
+        },
+        {
+          question: "How can I contact you?",
+          answer: "You can reach us on WhatsApp at +91 74082 52200 or email us at contact@modxeducation.com.",
+        },
+        {
+          question: "Do you offer counseling services?",
+          answer: "Yes, we offer professional counseling services to assist students in their academic and career paths.",
+        },
+        {
+          question: "What kind of counseling services do you provide?",
+          answer: "We provide career guidance, college admissions support, and personal development counseling.",
+        },
+        {
+          question: "Is there a fee for your counseling services?",
+          answer: "Yes, we have both free and premium counseling packages. Contact us for detailed pricing information.",
+        },
+        {
+          question: "How can I book a counseling session?",
+          answer: "You can book a session by contacting us through WhatsApp or email, or directly through our website.",
+        },
+        {
+          question: "Do you offer online counseling sessions?",
+          answer: "Yes, we offer both in-person and online counseling sessions to accommodate your preferences.",
+        },
+        {
+          question: "Can parents attend the counseling sessions?",
+          answer: "Yes, parents are welcome to join the sessions to better support their child’s education journey.",
+        },
+      ];
+      
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    number: "",
+    city: "",
+    query: "",
     message: "",
+    course: "",
+    intake:{name:"",value:""},
+    ielts:{name:"",value:""}
   });
 
   const handleChange = (e) => {
@@ -77,6 +97,9 @@ export default function Page() {
       number: "",
       city: "",
       query: "",
+      course: "",
+      intake:{name:"",value:""},
+      ielts:{name:"",value:""}
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Name is required"),
@@ -88,6 +111,13 @@ export default function Page() {
         .required("Phone number is required"),
       city: Yup.string().required("City is required"),
       query: Yup.string().required("Please enter your query"),
+         course: Yup.string().required("Please enter your Taeget Course"),
+          //   intake: Yup.object({
+          //     name: Yup.string().required("Intake is required"),
+          //   }).nullable().required("Intake is required"), // Validate as an object and ensure it's selected
+          //   ielts: Yup.object({
+          //     name: Yup.string().required("Please select an option"),
+          //   }).nullable().required("Please select an option"),
     }),
     onSubmit: (values) => {
       console.log("Form submitted with values:", values);
@@ -222,7 +252,7 @@ export default function Page() {
         </Box>
       </Box>
 
-      <Container sx={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",p:2}} maxWidth="md">
+      <Container sx={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",p:2,borderRadius:2}} maxWidth="md">
         <Typography variant="h4" align="center" gutterBottom>
           Get in Touch
         </Typography>
@@ -237,6 +267,7 @@ export default function Page() {
           {/* Name */}
 
           <TextField
+          required
             fullWidth
             label="Name"
             name="name"
@@ -250,6 +281,7 @@ export default function Page() {
           {/* Email */}
 
           <TextField
+          required
             fullWidth
             label="Email"
             name="email"
@@ -265,6 +297,7 @@ export default function Page() {
 
           <TextField
             fullWidth
+            required
             label="Phone Number"
             name="number"
             type="tel"
@@ -288,6 +321,59 @@ export default function Page() {
             helperText={formik.touched.city && formik.errors.city}
           />
 
+           <TextField
+                        fullWidth
+                        label="Target Course"
+                        name="course"
+                        variant="outlined"
+                        value={formik.values.course}
+                        onChange={formik.handleChange}
+                        error={formik.touched.course && Boolean(formik.errors.course)}
+                        helperText={formik.touched.course && formik.errors.course}
+                      />
+          
+                      <Autocomplete
+                        disablePortal
+                        options={[
+                          { name: "January", value: "january" },
+                          { name: "February", value: "february" },
+                        ]}
+                        getOptionLabel={(option) => option.name}
+                        renderOption={(props, option) => (
+                          <Box component="li" {...props}>
+                            {option.name}
+                          </Box>
+                        )}
+                       
+                        renderInput={(params) => (
+                          <TextField {...params} label="Intake Interested In"
+                          // error={formik.errors.intake}
+                          // helperText={formik.touched.intake?.name && formik.errors.intake?.name}
+                          />
+                        )}
+                      />
+          
+                      <Autocomplete
+                        disablePortal
+                        options={[
+                          { name: "Yes", value: "yes" },
+                          { name: "No", value: "no" },
+                        ]}
+                        getOptionLabel={(option) => option.name}
+                        renderOption={(props, option) => (
+                          <Box component="li" {...props}>
+                            {option.name}
+                          </Box>
+                        )}
+                  
+                        renderInput={(params) => (
+                          <TextField {...params} label="Do You Have IELTS" 
+                          // error={formik.errors.ielts }
+                          // helperText={formik.touched.ielts && formik.errors.ielts}
+                          />
+                        )}
+                      />
+
           {/* Query */}
 
           <TextField
@@ -301,6 +387,14 @@ export default function Page() {
             onChange={formik.handleChange}
             error={formik.touched.query && Boolean(formik.errors.query)}
             helperText={formik.touched.query && formik.errors.query}
+            sx={{
+                '& .MuiInputBase-root': {
+                  height: '100px', // Increase the height of the input field
+                },
+                '& .MuiOutlinedInput-root': {
+                  height: '100px', // Set the same height for the whole input area
+                },
+              }}
           />
 
           {/* Action Buttons */}

@@ -14,28 +14,28 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 // FAQ data
 const faqs = [
   {
-    question: "Does Doodle To Write Long Articles?",
-    answer: "Yes, Doodle is capable of writing long-form articles with proper structure and coherent content. It uses advanced AI to generate comprehensive articles while maintaining context and flow throughout the piece."
+    question: "What is ModX Education?",
+    answer: "ModX Education is a one-stop platform for students who wish to pursue their studies abroad. We, at LS, assist students from the beginning of the application process to the time they set foot in the new country. We help students by taking care of profile evaluation, shortlisting of colleges, application submission to getting a students’ visa. We also offer guidance to ensure that every student who signs up with us successfully books a seat in their dream university. We follow a unique approach to counselling following which our team of experienced study-abroad consultants work with student mentors to help you make the right decision for your career."
   },
   {
-    question: "How are AI writers impacting the writing industry?",
-    answer: "AI writers are transforming the content creation landscape by automating routine writing tasks, increasing productivity, and providing assistance to human writers. They serve as powerful tools for generating initial drafts and ideas."
+    question: "Is ModX Education Free??",
+    answer: "ModX Education offers a bunch of services free-of-cost that includes preliminary consultations with a Leap counsellor, IELTS Masterclass as well as access to our events. However, we charge a nominal fee for our array of paid products that help you to fasttrack your journey towards your dream university."
   },
   {
-    question: "What is Doodle Content Writing Tool?",
-    answer: "Doodle is an AI-powered content writing tool that helps create various types of content including articles, blog posts, and marketing copy. It combines natural language processing with creative algorithms to generate human-like text."
+    question: "I have some more questions regarding Councellings. How can I get them resolved?",
+    answer: "For queries about Councelling, you can reach us on WhatsApp at +91 74082 52200 or email us at contact@modxeducation.com."
   },
   {
-    question: "What Languages Does It Supports?",
-    answer: "The tool supports multiple languages including English, Spanish, French, German, and several other major languages, making it versatile for global content creation needs."
+    question: "What areas do you specialize in?",
+    answer: "We specialize in career counseling, college admissions guidance, study-abroad programs, and personal development coaching."
   },
   {
-    question: "How does the learning process of AI Image work?",
-    answer: "AI image learning involves training neural networks on vast datasets of images, enabling pattern recognition and understanding of visual elements. This allows the AI to generate and process images effectively."
+    question: "What makes your counseling services unique?",
+    answer: "We take a holistic approach to counseling, combining personalized advice, expert knowledge, and a deep understanding of student needs to provide tailored solutions."
   },
   {
-    question: "What is the benefit of AI tools?",
-    answer: "AI tools offer numerous benefits including increased efficiency, consistency in output, 24/7 availability, scalability of content production, and cost-effectiveness for businesses and content creators."
+    question: "What is the mission of your counseling service?",
+    answer: "Our mission is to empower students by providing personalized guidance and resources to help them achieve their academic and career goals."
   }
 ]
 

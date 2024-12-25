@@ -8,6 +8,7 @@ import {
   Typography,
   Grid,
   Stack,
+  Autocomplete,
 } from "@mui/material";
 import { Formik, Form, Field, useFormik } from "formik";
 import * as Yup from "yup";
@@ -21,17 +22,18 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 500,
   maxHeight: "100vh",
+  overflowY:"scroll",
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 3,
   borderRadius: 2,
   display: "flex",
   flexDirection: "column",
-  gap: "16px",
+  gap: "20px",
 };
 
-const ContactModal = ({open,setOpen}) => {
-  const handleClose = () => setOpen(false);
+const ContactModal = ({ open, setOpen }) => {
+  const handleClose = () => {setOpen(false),formik.resetForm()};
 
   const formik = useFormik({
     initialValues: {
@@ -40,6 +42,9 @@ const ContactModal = ({open,setOpen}) => {
       number: "",
       city: "",
       query: "",
+      course: "",
+      intake:{name:"",value:""},
+      ielts:{name:"",value:""}
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Name is required"),
@@ -51,6 +56,13 @@ const ContactModal = ({open,setOpen}) => {
         .required("Phone number is required"),
       city: Yup.string().required("City is required"),
       query: Yup.string().required("Please enter your query"),
+      course: Yup.string().required("Please enter your Taeget Course"),
+    //   intake: Yup.object({
+    //     name: Yup.string().required("Intake is required"),
+    //   }).nullable().required("Intake is required"), // Validate as an object and ensure it's selected
+    //   ielts: Yup.object({
+    //     name: Yup.string().required("Please select an option"),
+    //   }).nullable().required("Please select an option"),
     }),
     onSubmit: (values) => {
       console.log("Form submitted with values:", values);
@@ -70,7 +82,7 @@ const ContactModal = ({open,setOpen}) => {
             <Typography id="contact-modal-title" variant="h6" gutterBottom>
               Request a Contact
             </Typography>
-            <CloseIcon sx={{cursor:"pointer"}} onClick={handleClose}/>
+            <CloseIcon sx={{ cursor: "pointer" }} onClick={handleClose} />
           </Stack>
 
           <form
@@ -79,6 +91,7 @@ const ContactModal = ({open,setOpen}) => {
             {/* Name */}
 
             <TextField
+             required
               fullWidth
               label="Name"
               name="name"
@@ -92,6 +105,7 @@ const ContactModal = ({open,setOpen}) => {
             {/* Email */}
 
             <TextField
+            required
               fullWidth
               label="Email"
               name="email"
@@ -106,6 +120,7 @@ const ContactModal = ({open,setOpen}) => {
             {/* Number */}
 
             <TextField
+            required
               fullWidth
               label="Phone Number"
               name="number"
@@ -130,6 +145,58 @@ const ContactModal = ({open,setOpen}) => {
               helperText={formik.touched.city && formik.errors.city}
             />
 
+            <TextField
+              fullWidth
+              label="Target Course"
+              name="course"
+              variant="outlined"
+              value={formik.values.course}
+              onChange={formik.handleChange}
+              error={formik.touched.course && Boolean(formik.errors.course)}
+              helperText={formik.touched.course && formik.errors.course}
+            />
+
+            <Autocomplete
+              disablePortal
+              options={[
+                { name: "January", value: "january" },
+                { name: "February", value: "february" },
+              ]}
+              getOptionLabel={(option) => option.name}
+              renderOption={(props, option) => (
+                <Box component="li" {...props}>
+                  {option.name}
+                </Box>
+              )}
+             
+              renderInput={(params) => (
+                <TextField {...params} label="Intake Interested In"
+                // error={formik.errors.intake}
+                // helperText={formik.touched.intake?.name && formik.errors.intake?.name}
+                />
+              )}
+            />
+
+            <Autocomplete
+              disablePortal
+              options={[
+                { name: "Yes", value: "yes" },
+                { name: "No", value: "no" },
+              ]}
+              getOptionLabel={(option) => option.name}
+              renderOption={(props, option) => (
+                <Box component="li" {...props}>
+                  {option.name}
+                </Box>
+              )}
+        
+              renderInput={(params) => (
+                <TextField {...params} label="Do You Have IELTS" 
+                // error={formik.errors.ielts }
+                // helperText={formik.touched.ielts && formik.errors.ielts}
+                />
+              )}
+            />
             {/* Query */}
 
             <TextField
@@ -143,11 +210,23 @@ const ContactModal = ({open,setOpen}) => {
               onChange={formik.handleChange}
               error={formik.touched.query && Boolean(formik.errors.query)}
               helperText={formik.touched.query && formik.errors.query}
+              sx={{
+                '& .MuiInputBase-root': {
+                  height: '100px', // Increase the height of the input field
+                },
+                '& .MuiOutlinedInput-root': {
+                  height: '100px', // Set the same height for the whole input area
+                },
+              }}
             />
 
             {/* Action Buttons */}
-            <Box display="flex" justifyContent="end" gap="20px">
-              <Button onClick={handleClose} sx={{color:"black"}} variant="outlined">
+            <Box display="flex" justifyContent="end" gap="20px" mt="10px">
+              <Button
+                onClick={handleClose}
+                sx={{ color: "black" }}
+                variant="outlined"
+              >
                 Cancel
               </Button>
               <Button

@@ -18,7 +18,7 @@ const faqs = [
     answer: "ModX Education is a one-stop platform for students who wish to pursue their studies abroad. We, at LS, assist students from the beginning of the application process to the time they set foot in the new country. We help students by taking care of profile evaluation, shortlisting of colleges, application submission to getting a students’ visa. We also offer guidance to ensure that every student who signs up with us successfully books a seat in their dream university. We follow a unique approach to counselling following which our team of experienced study-abroad consultants work with student mentors to help you make the right decision for your career."
   },
   {
-    question: "Is ModX Education Free??",
+    question: "Is ModX Education Free?",
     answer: "ModX Education offers a bunch of services free-of-cost that includes preliminary consultations with a Leap counsellor, IELTS Masterclass as well as access to our events. However, we charge a nominal fee for our array of paid products that help you to fasttrack your journey towards your dream university."
   },
   {

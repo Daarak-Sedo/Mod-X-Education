@@ -18,12 +18,7 @@ import WorkIcon from "@mui/icons-material/Work";
 import FamilyRestroomIcon from "@mui/icons-material/FamilyRestroom";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Image from "next/image";
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineDot from "@mui/lab/TimelineDot";
+
 
 const services = [
   {

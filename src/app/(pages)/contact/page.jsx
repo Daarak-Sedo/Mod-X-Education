@@ -265,10 +265,10 @@ export default function Page() {
                 Don&apos;t Hesitate to Contact Us
               </Typography> */}
              <Typography variant="h4" fontWeight="bold">
-  {"Don't Hesitate to Contact Us"}
+  {"Do not Hesitate to Contact Us"}
 </Typography>
               <Typography color="text.secondary" sx={{ mt: 2 }}>
-                We're happy to clear your Queries.
+                We are happy to clear your Queries.
               </Typography>
             </Box>
 
@@ -331,7 +331,7 @@ export default function Page() {
                 below. We'd love to hear from you.
               </Typography> */}
               <Typography color="text.secondary" sx={{ mt: 2 }}>
-  {"Please feel free to get in touch with us using the contact form below. We'd love to hear from you."}
+  {"Please feel free to get in touch with us using the contact form below. We would love to hear from you."}
 </Typography>
             </Box>
 

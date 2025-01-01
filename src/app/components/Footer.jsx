@@ -11,6 +11,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Divider from '@mui/material/Divider';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -51,13 +52,15 @@ const Footer = () => {
           <Grid item xs={12} sm={6} md={3}>
                   {/* Top Logo Section */}
       
-        <Box display="flex" justifyContent="center" mb={2}>
-          <img
+       
+          <Image
           src="https://leapscholar.com/blog/wp-content/uploads/2022/11/LeapScholar-header-logo.svg"
             alt="Company Logo"
-            style={{ height: 60 }}
+            width={250} // Set width using props
+            height={50} 
+            loading="lazy"
           />
-        </Box>
+      
         <Divider />
     
             <Typography variant="h6" color="text.primary" gutterBottom>

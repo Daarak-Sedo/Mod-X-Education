@@ -192,7 +192,7 @@ export default function Page() {
       </Box>
 
       <Box sx={{ display: "flex", flexDirection: "column", gap: 8, mb: 6 }}>
-        <Box sx={{  mt: 8 }}>
+        <Box sx={{ mt: 8 }}>
           <Typography
             variant="h3"
             align="center"

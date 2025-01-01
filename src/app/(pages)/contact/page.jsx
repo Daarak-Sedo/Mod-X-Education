@@ -160,7 +160,7 @@ export default function Page() {
               mt: 2,
             }}
           >
-            We Are Happy To Be Part Of Your new Beginning and excited about
+            We Are Happy To Be Part Of Your New Beginning and excited about
             walking through the beautiful journey together!
           </Typography>
         </Container>
@@ -262,7 +262,7 @@ export default function Page() {
                 Have Questions?
               </Typography>
               <Typography variant="h4" fontWeight="bold">
-                Don't Hesitate to Contact Us
+                Don&apos;t Hesitate to Contact Us
               </Typography>
               <Typography color="text.secondary" sx={{ mt: 2 }}>
                 We're happy to clear your Queries.
@@ -314,7 +314,7 @@ export default function Page() {
                     borderBottom: "3px solid #d32f2f",
                   }}
                 >
-                  LET’S
+                  Let&apos;s
                 </span>{" "}
                 CONNECT
               </Typography>

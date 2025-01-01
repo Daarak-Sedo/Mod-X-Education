@@ -498,7 +498,7 @@ export default function Page() {
           </Grid>
         </Grid>
 
-        {/* Contact Information Section */}
+
         <Box sx={{ ml: 2, mr: 2 }}>
           <Typography variant="h4" gutterBottom color="navy">
             Contact Us

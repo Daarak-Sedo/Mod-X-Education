@@ -261,9 +261,12 @@ export default function Page() {
               <Typography variant="h4" fontWeight="bold" gutterBottom mt={2}>
                 Have Questions?
               </Typography>
-              <Typography variant="h4" fontWeight="bold">
+              {/* <Typography variant="h4" fontWeight="bold">
                 Don&apos;t Hesitate to Contact Us
-              </Typography>
+              </Typography> */}
+             <Typography variant="h4" fontWeight="bold">
+  {"Don't Hesitate to Contact Us"}
+</Typography>
               <Typography color="text.secondary" sx={{ mt: 2 }}>
                 We're happy to clear your Queries.
               </Typography>
@@ -323,10 +326,13 @@ export default function Page() {
                 Send Your Message
               </Typography>
 
-              <Typography color="text.secondary" sx={{ mt: 2 }}>
+              {/* <Typography color="text.secondary" sx={{ mt: 2 }}>
                 Please feel free to get in touch with us using the contact form
                 below. We'd love to hear from you.
-              </Typography>
+              </Typography> */}
+              <Typography color="text.secondary" sx={{ mt: 2 }}>
+  {"Please feel free to get in touch with us using the contact form below. We'd love to hear from you."}
+</Typography>
             </Box>
 
             <Box

@@ -77,7 +77,7 @@ export default function LatestUpdates() {
         </Typography>
 
         <Marquee gradient={false} speed={40} pauseOnHover={true}>
-          <Box sx={{ display: "flex", gap: 3,mb:1,py:3 }}>
+          <Box sx={{ display: "flex", gap: 3,py:3 }}>
             {newsItems.map((item, index) => (
               <Card
                 key={index}

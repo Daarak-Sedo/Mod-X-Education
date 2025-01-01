@@ -50,22 +50,22 @@ export default function FAQAccordion() {
   }
 
   return (
-    <Box  sx={{ml:2,mr:2}}>
+    <Box >
       <Typography
         component="h2"
-        variant="h2"
+        variant="h3"
         align="center"
         sx={{
           mb: 6,
-          color: 'navy',
+          color: 'black',
           fontSize: { xs: '2rem', md: '3rem' },
           fontWeight: 'bold'
         }}
       >
-        We answer your questions
+      Frequently Asked Questions
       </Typography>
 
-      <Box
+      <Container
         sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: '1fr' },
@@ -79,7 +79,7 @@ export default function FAQAccordion() {
             onChange={handleChange(`panel${index}`)}
             sx={{
               backgroundColor: 'white',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+              boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
               '&:before': {
                 display: 'none',
               },
@@ -116,7 +116,7 @@ export default function FAQAccordion() {
             </AccordionDetails>
           </Accordion>
         ))}
-      </Box>
+      </Container>
     </Box>
   )
 }

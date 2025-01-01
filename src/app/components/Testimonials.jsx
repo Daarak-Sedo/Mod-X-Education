@@ -52,6 +52,7 @@ export default function Testimonials() {
       <Box textAlign="center" mb={6}>
         <Typography
           component="span"
+          variant='h4'
           sx={{
             color: 'primary.main',
             fontWeight: 600,

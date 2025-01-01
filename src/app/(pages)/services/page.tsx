@@ -132,13 +132,13 @@ export default function ServicesPage() {
           </Typography>
         </Box>
 
-        <Box sx={{ ml: 4, mr: 4 }}>
+        <Box >
           {services.map((service, index) => (
             <Grid
               container
               key={index}
               spacing={4}
-              sx={{ my: 4, background: index % 2 === 0 ? "white" : "#F2F8FD" }}
+              sx={{ my: 4, background: index % 2 === 0 ? "white" : "#F2F8FD",px:4}}
               direction={index % 2 === 0 ? "row" : "row-reverse"}
             >
               <Grid
@@ -171,10 +171,10 @@ export default function ServicesPage() {
                   justifyContent: "center",
                 }}
               >
-                <Typography variant="h4" gutterBottom>
+                <Typography variant="h3" gutterBottom>
                   {service.title}
                 </Typography>
-                <Typography variant="body1">{service.description}</Typography>
+                <Typography variant="body1" color={"#546e7a"}>{service.description}</Typography>
               </Grid>
             </Grid>
           ))}

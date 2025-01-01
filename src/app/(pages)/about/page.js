@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
@@ -32,12 +33,12 @@ const page = () => {
             <Typography
               variant="h2"
               align="start"
-              color="white"
               gutterBottom
               sx={{
                 color: "#00584C",
                 fontFamily: "Space Grotesk",
-                fontWeight: 400,
+                fontSize: { xs: '2rem', md: '3rem' },
+                fontWeight: 700,
               }}
             >
               A Smart Move for
@@ -46,7 +47,8 @@ const page = () => {
               variant="h4"
               align="start"
               color="white"
-              sx={{ color: "#F9B700" }}
+              sx={{ color: "#F9B700" , fontSize: { xs: '2rem', md: '3rem' },
+              fontWeight: 700}}
             >
               YOUR STUDIES ABROAD
             </Typography>

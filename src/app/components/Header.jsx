@@ -78,7 +78,7 @@ const Header = () => {
               alignItems="center"
               // sx={{ display: { xs: "none", md: "flex" } }}
               sx={{
-                p:{xs:2,lg:0},
+                p: { xs: 2, lg: 0 },
                 flexWrap: { xs: "wrap", md: "nowrap" },
               }}
             >
@@ -95,15 +95,10 @@ const Header = () => {
                 </Typography>
               </Stack>
 
-<Box sx={{mt:20}}>
-
-
               <Button
                 variant="contained"
                 color="primary"
                 sx={{
-           
-
                   backgroundColor: "#A3C7D6",
                   color: "black",
                   "&:hover": {
@@ -114,47 +109,9 @@ const Header = () => {
               >
                 Claim Your Free Counselling Session
               </Button>
-              </Box>
             </Stack>
 
-
-
-          
-{/* <Grid container spacing={1} alignItems="center" >
-            <Grid item xs={6} md={3}>
-              <Stack direction="row" spacing={1} alignItems="center">
-                <EmailIcon color="primary" />
-                <Typography variant="body2" color="black">
-                  contact@modxeducation.com
-                </Typography>
-              </Stack>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Stack direction="row" spacing={1} alignItems="center">
-                <WhatsAppIcon color="success" />
-                <Typography variant="body2" color="black">
-                  +91 74082 52200
-                </Typography>
-              </Stack>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{
-                  backgroundColor: "#A3C7D6",
-                  color: "black",
-                  "&:hover": {
-                    backgroundColor: "#F9B700",
-                  },
-                }}
-                onClick={() => setIsContactModalOpen(true)}
-              >
-                Claim Your Free Counselling Session
-              </Button>
-            </Grid>
-          </Grid> */}
-
+           
           </Toolbar>
 
           {/* Navigation Links (Visible on medium and larger screens) */}

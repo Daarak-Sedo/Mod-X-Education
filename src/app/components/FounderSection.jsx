@@ -1,60 +1,80 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react';
-import { Box, Container, Typography, Grid, Card, CardContent, CardMedia, Button } from '@mui/material';
+import React, { useState } from "react";
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Button,
+  IconButton,
+} from "@mui/material";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-
-const teamMembers= [
+const teamMembers = [
   {
     name: "Abdullah Kidwai",
     role: "Co-Founder",
-    image: "https://leapscholar.com/_next/image?url=https%3A%2F%2Fd14lg9nzq1d3lc.cloudfront.net%2Fscholarfrontend%2Fassets%2Fimages%2FLSRevamp%2Fabout-us-page%2Ffounder-1.png&w=640&q=75",
-    bio: "Visionary leader with 15+ years of experience in international education. Passionate about creating opportunities for students worldwide."
+    image:
+      "https://leapscholar.com/_next/image?url=https%3A%2F%2Fd14lg9nzq1d3lc.cloudfront.net%2Fscholarfrontend%2Fassets%2Fimages%2FLSRevamp%2Fabout-us-page%2Ffounder-1.png&w=640&q=75",
+    bio: "Visionary leader with 15+ years of experience in international education. Passionate about creating opportunities for students worldwide.",
   },
   {
     name: "Suhil Khan",
     role: "Visionary",
-    image: "https://leapscholar.com/_next/image?url=https%3A%2F%2Fd14lg9nzq1d3lc.cloudfront.net%2Fscholarfrontend%2Fassets%2Fimages%2FLSRevamp%2Fabout-us-page%2Ffounder-2.png&w=640&q=75",
-    bio: "Creative strategist dedicated to revolutionizing the study abroad experience. Former international student turned education innovator."
+    image:
+      "https://leapscholar.com/_next/image?url=https%3A%2F%2Fd14lg9nzq1d3lc.cloudfront.net%2Fscholarfrontend%2Fassets%2Fimages%2FLSRevamp%2Fabout-us-page%2Ffounder-2.png&w=640&q=75",
+    bio: "Creative strategist dedicated to revolutionizing the study abroad experience. Former international student turned education innovator.",
   },
   {
     name: "Rahil Singh",
     role: "Innovator",
-    image: "https://leapscholar.com/_next/image?url=https%3A%2F%2Fd14lg9nzq1d3lc.cloudfront.net%2Fscholarfrontend%2Fassets%2Fimages%2FLSRevamp%2Fabout-us-page%2Ffounder-1.png&w=640&q=75",
-    bio: "Tech enthusiast and education reformer. Committed to making quality education accessible to students across the globe."
-  }
+    image:
+      "https://leapscholar.com/_next/image?url=https%3A%2F%2Fd14lg9nzq1d3lc.cloudfront.net%2Fscholarfrontend%2Fassets%2Fimages%2FLSRevamp%2Fabout-us-page%2Ffounder-1.png&w=640&q=75",
+    bio: "Tech enthusiast and education reformer. Committed to making quality education accessible to students across the globe.",
+  },
 ];
 
 export default function FounderSection() {
   const [flippedCards, setFlippedCards] = useState({});
 
   const handleCardFlip = (index) => {
-    setFlippedCards(prev => ({ ...prev, [index]: !prev[index] }));
+    setFlippedCards((prev) => ({ ...prev, [index]: !prev[index] }));
   };
 
   return (
     <Box
       sx={{
         py: 8,
-        bgcolor: '#b89073', // Brown background color matching the image
-        color: 'white',
+        bgcolor: "#b89073", // Brown background color matching the image
+        color: "white",
       }}
     >
       <Container maxWidth="lg">
         <Typography
-          variant="h2"
+          variant="h3"
           component="h2"
           align="center"
-          sx={{ mb: 2, fontWeight: 'bold',color:"black" }}
+          sx={{
+            mb: 2,
+            fontWeight: "bold",
+            color: "black",
+            color: "rgb(30, 41, 89)",
+          }}
         >
-         Meet Our Founder
+          Meet Our Founder
         </Typography>
-        <Typography
-          variant="h5"
-          align="center"
-          sx={{ mb: 6 }}
-        >
-         Get personalised counselling from our founder and principal consultant, Mr. Sahil Narang. Having personally counselled over 1000+ students for top universities and business schools across the globe, Sahil is equipped with a wealth of experience when it comes to education abroad.
+        <Typography variant="h5" align="center" sx={{ mb: 6 }}>
+          Get personalised counselling from our founder and principal
+          consultant, Mr. Sahil Narang. Having personally counselled over 1000+
+          students for top universities and business schools across the globe,
+          Sahil is equipped with a wealth of experience when it comes to
+          education abroad.
         </Typography>
 
         <Grid container spacing={4} justifyContent="center">
@@ -63,17 +83,17 @@ export default function FounderSection() {
               <Card
                 sx={{
                   height: 400,
-       borderRadius:"20px",
-                  perspective: '1000px',
-                  '& > div': {
-                    transition: 'transform 0.8s',
-                    transformStyle: 'preserve-3d',
+                  borderRadius: "20px",
+                  perspective: "1000px",
+                  "& > div": {
+                    transition: "transform 0.8s",
+                    transformStyle: "preserve-3d",
                   },
-                  '& > div > div': {
-                    position: 'absolute',
-                    width: '100%',
-                    height: '100%',
-                    backfaceVisibility: 'hidden',
+                  "& > div > div": {
+                    position: "absolute",
+                    width: "100%",
+                    height: "100%",
+                    backfaceVisibility: "hidden",
                   },
                 }}
                 onMouseEnter={() => handleCardFlip(index)}
@@ -81,18 +101,20 @@ export default function FounderSection() {
               >
                 <Box
                   sx={{
-                    transform: flippedCards[index] ? 'rotateY(180deg)' : 'rotateY(0)',
-                    height: '100%',
+                    transform: flippedCards[index]
+                      ? "rotateY(180deg)"
+                      : "rotateY(0)",
+                    height: "100%",
                   }}
                 >
                   {/* Front of card */}
                   <CardContent
                     sx={{
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
                       gap: 2,
                     }}
                   >
@@ -103,7 +125,7 @@ export default function FounderSection() {
                       sx={{
                         width: 150,
                         height: 150,
-                        borderRadius: '50%',
+                        borderRadius: "50%",
                         mb: 2,
                       }}
                     />
@@ -121,15 +143,42 @@ export default function FounderSection() {
                   {/* Back of card */}
                   <CardContent
                     sx={{
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      transform: 'rotateY(180deg)',
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transform: "rotateY(180deg)",
                     }}
                   >
-                    <Typography variant="body1" align="center">
+                 
+                    <Typography variant="h6" gutterBottom>
+                      Connect with us on
+                    </Typography>
+                    <Box sx={{ display: "flex", gap: 2 }}>
+                      <IconButton
+                        color="inherit"
+                        href="https://facebook.com"
+                        target="_blank"
+                      >
+                        <FacebookIcon  sx={{ color: "#1877F2" }}/>
+                      </IconButton>
+                      <IconButton
+                        color="inherit"
+                        href="https://instagram.com"
+                        target="_blank"
+                      >
+                        <InstagramIcon sx={{ color: "#E1306C" }}/>
+                      </IconButton>
+                      <IconButton
+                        color="inherit"
+                        href="https://linkedin.com"
+                        target="_blank"
+                      >
+                        <LinkedInIcon sx={{ color: "#0077B5" }} />
+                      </IconButton>
+                    </Box>
+                    <Typography variant="body1" align="center" mt={2}>
                       {member.bio}
                     </Typography>
                   </CardContent>
@@ -142,4 +191,3 @@ export default function FounderSection() {
     </Box>
   );
 }
-

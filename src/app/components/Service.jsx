@@ -36,9 +36,9 @@ export default function Services() {
   }, []);
 
   return (
-    <Box component="section" sx={{ py: 8 }}>
+    <Box component="section" sx={{ py: 4 }}>
       <Box sx={{ ml: 2, mr: 2 }}>
-        <Typography variant="h4" align="center" gutterBottom sx={{   fontWeight: "bold",}}>
+        <Typography variant="h3" align="center" gutterBottom sx={{  color: 'rgb(30, 41, 89)', fontWeight: "bold",}}>
           Our Services
         </Typography>
         {services.map((service, index) => (

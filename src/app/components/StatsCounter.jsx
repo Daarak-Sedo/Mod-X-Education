@@ -9,6 +9,7 @@ import CountUp from 'react-countup';
 const stats = [
   {
     value: 500,
+    suffix: '+',
     label: 'Happy Students'
   },
   {
@@ -18,6 +19,7 @@ const stats = [
   },
   {
     value: 10,
+    suffix: '+',
     label: 'Countries Explored'
   }
 ];

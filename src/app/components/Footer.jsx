@@ -28,19 +28,18 @@ const Footer = () => {
             <Typography variant="h6" color="text.primary" gutterBottom>
               About Us
             </Typography>
-            <Link href="#" color="text.primary" display="block">Team</Link>
-            <Link href="#" color="text.primary" display="block">History</Link>
-            <Link href="#" color="text.primary" display="block">Contact Us</Link>
-            <Link href="#" color="text.primary" display="block">Locations</Link>
+            <Link href="/about" color="text.primary" display="block">Team</Link>
+            <Link href="/contact" color="text.primary" display="block">Contact Us</Link>
+            <Link href="/contact" color="text.primary" display="block">Locations</Link>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" color="text.primary" gutterBottom>
               Services
             </Typography>
-            <Link href="#" color="text.primary" display="block">Study Abroad</Link>
-            <Link href="#" color="text.primary" display="block">Test Preparation</Link>
-            <Link href="#" color="text.primary" display="block">Counseling</Link>
-            <Link href="#" color="text.primary" display="block">Visa Services</Link>
+            <Link href="/services" color="text.primary" display="block">Study Abroad</Link>
+            <Link href="/services" color="text.primary" display="block">Test Preparation</Link>
+            <Link href="/services" color="text.primary" display="block">Counseling</Link>
+            <Link href="/services" color="text.primary" display="block">Visa Services</Link>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" color="text.primary" gutterBottom>

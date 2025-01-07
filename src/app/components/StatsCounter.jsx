@@ -13,7 +13,7 @@ const stats = [
     label: 'Happy Students'
   },
   {
-    value: 100,
+    value: 20,
     suffix: '+',
     label: 'Partner Universities'
   },

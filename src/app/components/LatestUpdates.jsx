@@ -17,7 +17,7 @@ import Link from "next/link";
 const newsItems = [
   {
     title: "Low Fee & Cheapest Universities in UK for International Students 2025!",
-    date: "December 15, 2024",
+    date: "January 1, 2025",
     description:
       "Discover the most affordable universities in the UK that provide quality education for international students.",
       path:"low-fee-universities-in-uk",
@@ -26,7 +26,7 @@ const newsItems = [
   },
   {
     title: "Top 10 Universities in UK for Masters in 2025",
-    date: "December 10, 2024",
+    date: "January 4, 2025",
     description:
       "Explore the leading UK institutions offering exceptional master's programs for 2025.",
     path:"/top-university-in-uk-for-masters",
@@ -35,7 +35,7 @@ const newsItems = [
   },
   {
     title: "Top 10 Study Destinations!",
-    date: "December 5, 2024",
+    date: "January 7, 2025",
     description:
       "Explore the best countries for your academic journey. Adventure awaits!",
       path:"top-study-destinations",
@@ -44,7 +44,7 @@ const newsItems = [
   },
   {
     title: "Top 10 Universities in UK for Bachelors 2025",
-    date: "December 1, 2024",
+    date: "January 15, 2025",
     description:
       "Dive into the top business schools and universities in the UK offering premier programs in 2025.",
       path:"/top-university-in-uk-for-bachelors",

@@ -122,6 +122,7 @@ const Header = () => {
               display: { xs: "none", md: "flex" },
               justifyContent: "space-around",
               mb: 2,
+              mt:2
             }}
           >
             {pages.map((page, index) => {

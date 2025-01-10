@@ -22,6 +22,10 @@ import { usePathname } from "next/navigation";
 import ContactModal from "./ContactModal";
 import { Grid } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+
+
 
 const pages = [
   { name: "Home", path: "/" },
@@ -31,10 +35,34 @@ const pages = [
   { name: "Contact", path: "/contact" },
 ];
 
+const servicesColumn1 = [
+  'Comprehensive Education',
+  'Pre Admission Services',
+  'ModX Buddy Program',
+  'Applications & Admission Process',
+  'Comprehensive Education Counselling',
+]
+
+const servicesColumn2 = [
+  'Course and University short listing',
+  'Dedicated writer for SOP',
+  'visa Application Guide',
+  'Interview Preparation',
+]
+
+const servicesColumn3 = [
+  'Essay brain stroming and Unlimited Editing Sessions',
+  'Loan Assistance',
+  'Accommodation',
+]
+
 const Header = () => {
   const pathname = usePathname();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isServicesNestedMenus, setIsServicesNestedMenus] = useState(null)
+  console.log("isServicesNestedMenus",isServicesNestedMenus)
+
 
   // Check if the screen width is less than or equal to 600px
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -42,6 +70,14 @@ const Header = () => {
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
+
+  const handleOpenNavMenuOfServices = (event) => {
+    setIsServicesNestedMenus(event.currentTarget)
+  }
+
+  const handleCloseNavMenuOfServices = () => {
+    setIsServicesNestedMenus(null)
+  }
 
   return (
     <>
@@ -142,7 +178,7 @@ const Header = () => {
             {pages.map((page, index) => {
               const isActive = pathname === page.path;
               return (
-                <Link key={index} href={page.path} passHref>
+                <Link key={index} href={page.path} passHref onClick={handleCloseNavMenuOfServices}>
                   <Typography
                     variant="body1"
                     sx={{
@@ -152,6 +188,14 @@ const Header = () => {
                         color: "#F9B700",
                       },
                     }}
+                    onClick={handleCloseNavMenuOfServices}
+                    // onMouseEnter={handleOpenNavMenuOfServices}
+                    onMouseEnter={(event) => {
+                      if (page.name === "Services") {handleOpenNavMenuOfServices(event)} 
+                    }}
+                    
+                   
+                    
                   >
                     {page.name}
                   </Typography>
@@ -212,6 +256,67 @@ const Header = () => {
         </Drawer>
       </AppBar>
       <ContactModal open={isContactModalOpen} setOpen={setIsContactModalOpen} />
+      <Menu
+  id="menu-appbar"
+  anchorEl={isServicesNestedMenus}
+  anchorOrigin={{
+    vertical: 'bottom',
+    horizontal: 'left',
+  }}
+  keepMounted
+  transformOrigin={{
+    vertical: 'top',
+    horizontal: 'left',
+  }}
+  open={Boolean(isServicesNestedMenus)}
+  onClose={handleCloseNavMenuOfServices}
+  onMouseLeave={handleCloseNavMenuOfServices}
+  // sx={{
+  //   display: { xs: 'block', md: 'block' }, // Ensure it shows on all screen sizes
+  // }}
+  PaperProps={{
+    sx: {
+      mt: 2, // Adds a 16px margin on top
+    },
+  }}
+>
+<Box
+  sx={{
+    display: 'flex',
+    justifyContent: 'space-between',
+    // backgroundColor: '#F9F6EF',
+    padding: 2,
+    // border: '1px solid #ccc',
+  }}
+  onMouseLeave={(event) => {
+    handleCloseNavMenuOfServices();
+ }}
+>
+  {[servicesColumn1, servicesColumn2, servicesColumn3].map((column, colIndex) => (
+    <Box key={colIndex} sx={{ flex: 1, marginRight: colIndex < 2 ? 2 : 0 }}>
+      {column.map((item, index) => (
+        <Typography
+          key={index}
+          sx={{
+            color: '#333',
+            marginBottom: 1,
+            borderBottom: '1px solid #e0e0e0',
+            paddingBottom: 1,
+            cursor: 'pointer',
+            '&:hover': {
+              color: '#F9B700',
+            },
+          }}
+        >
+          {item}
+        </Typography>
+      ))}
+    </Box>
+  ))}
+</Box>
+
+</Menu>
+
     </>
   );
 };

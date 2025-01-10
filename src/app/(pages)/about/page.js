@@ -83,7 +83,7 @@ const page = () => {
           Welcome to ModX Education
         </Typography>
         <Typography variant="body1">
-          Your Partner in Achieving Your Study Abroad Dream. At ModX Education, we understand that studying abroad is more than just earning a degree—it's a transformative journey toward personal growth, professional success, and new opportunities. We specialise in helping students like you achieve admission to top Master's and MBA programs in the UK while providing unparalleled support at every step of the process.
+          Your Partner in Achieving Your Study Abroad Dream. At ModX Education, we understand that studying abroad is more than just earning a degree—it is a transformative journey toward personal growth, professional success, and new opportunities. We specialise in helping students like you achieve admission to top Masters and MBA programs in the UK while providing unparalleled support at every step of the process.
         </Typography>
       </Box>
 
@@ -205,7 +205,7 @@ const page = () => {
           Beyond Admission – Your Lifelong Partner in Success
         </Typography>
         <Typography variant="body1" paragraph>
-          At ModX Education, we're not just about getting you admitted. What sets us apart is our unwavering commitment to your success even after you've enrolled. Through our <span style={{fontWeight:700 , borderBottom:"2px solid black", cursor:"pointer"}}onClick={()=> setOpen(true)}>ModX Buddy Program</span>, we provide continuous support to help you adapt to life in the UK.
+          At ModX Education, we are not just about getting you admitted. What sets us apart is our unwavering commitment to your success even after you have enrolled. Through our <span style={{fontWeight:700 , borderBottom:"2px solid black", cursor:"pointer"}}onClick={()=> setOpen(true)}>ModX Buddy Program</span>, we provide continuous support to help you adapt to life in the UK.
         </Typography>
         <List>
           <ListItem>
@@ -251,7 +251,7 @@ const page = () => {
           We know the challenges students face when pursuing education abroad—from choosing the right program to adjusting to life in a new country. That's why we are committed to offering a holistic approach, providing support for every little detail that matters along the way. With our personalised services and genuine commitment to your success, we ensure you feel confident, prepared, and empowered throughout your journey.
         </Typography>
         <Typography variant="body1" sx={{ fontStyle: 'italic', fontWeight: 'bold' }}>
-          At ModX Education, your goals are our mission. Let us help you turn your aspirations into achievements. Your dream of studying in the UK is just the beginning—let's make it a reality together.
+          At ModX Education, your goals are our mission. Let us help you turn your aspirations into achievements. Your dream of studying in the UK is just the beginning—lets make it a reality together.
         </Typography>
       </Box>
 

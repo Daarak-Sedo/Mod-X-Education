@@ -32,10 +32,10 @@ import FastfoodIcon from "@mui/icons-material/Fastfood";
 import LaptopMacIcon from "@mui/icons-material/LaptopMac";
 import HotelIcon from "@mui/icons-material/Hotel";
 import RepeatIcon from "@mui/icons-material/Repeat";
-import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
-import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied';
+import PublishedWithChangesIcon from "@mui/icons-material/PublishedWithChanges";
+import SensorOccupiedIcon from "@mui/icons-material/SensorOccupied";
 
-import StarBorderPurple500Icon from '@mui/icons-material/StarBorderPurple500';
+import StarBorderPurple500Icon from "@mui/icons-material/StarBorderPurple500";
 const AboutFounder = () => {
   return (
     <Box sx={{ flexGrow: 1, padding: "2rem", backgroundColor: "#fff" }}>
@@ -48,8 +48,8 @@ const AboutFounder = () => {
           </Typography>
 
           <Typography variant="body1" lineHeight={1.8}>
-            We transform students' academic journeys, guiding them toward
-            admission to the world's most prestigious universities. Our
+            We transform students academic journeys, guiding them toward
+            admission to the worlds most prestigious universities. Our
             personalised approach goes beyond test scores, empowering students
             to discover their unique strengths and build compelling applications
             that showcase their full potential.
@@ -120,11 +120,9 @@ const AboutFounder = () => {
         </Grid>
       </Grid>
 
-
       <Grid container spacing={4} mt={6}>
-
-         {/* Right Side: Content */}
-         <Grid item xs={12} md={6}>
+        {/* Right Side: Content */}
+        <Grid item xs={12} md={6}>
           <Box sx={{ textAlign: "left", maxWidth: 600, margin: "auto" }}>
             {/* Title */}
             <Typography variant="h3" fontWeight="bold" gutterBottom>
@@ -132,27 +130,28 @@ const AboutFounder = () => {
             </Typography>
 
             <Typography variant="body1" lineHeight={1.8}>
-         We   Embark on Your Journey to Study Abroad Success. we are dedicated to empowering students to achieve their academic and career dreams. Our personalized counseling services guide students in navigating the complexities of university admissions, career planning.
-
+              We Embark on Your Journey to Study Abroad Success. we are
+              dedicated to empowering students to achieve their academic and
+              career dreams. Our personalized counseling services guide students
+              in navigating the complexities of university admissions, career
+              planning.
             </Typography>
-
-           
           </Box>
         </Grid>
         {/* Left Side: Timeline */}
         <Grid item xs={12} md={6}>
-          <Timeline sx={{width:'500px'}}>
+          <Timeline sx={{ width: "500px" }}>
             <TimelineItem>
               <TimelineSeparator>
                 <TimelineConnector />
                 <TimelineDot>
-                  <SensorOccupiedIcon sx={{height:"35px", width:"35px"}}/>
+                  <SensorOccupiedIcon sx={{ height: "35px", width: "35px" }} />
                 </TimelineDot>
                 <TimelineConnector />
               </TimelineSeparator>
               <TimelineContent sx={{ py: "25px", px: 2 }}>
                 <Typography variant="h6" component="span">
-                Admissions Guide
+                  Admissions Guide
                 </Typography>
               </TimelineContent>
             </TimelineItem>
@@ -160,37 +159,36 @@ const AboutFounder = () => {
               <TimelineSeparator>
                 <TimelineConnector />
                 <TimelineDot color="primary">
-                  <PublishedWithChangesIcon sx={{height:"35px", width:"35px"}} />
+                  <PublishedWithChangesIcon
+                    sx={{ height: "35px", width: "35px" }}
+                  />
                 </TimelineDot>
                 <TimelineConnector />
               </TimelineSeparator>
               <TimelineContent sx={{ py: "25px", px: 2 }}>
                 <Typography variant="h6" component="span">
-                Essay Crafting
-
+                  Essay Crafting
                 </Typography>
-                
               </TimelineContent>
             </TimelineItem>
             <TimelineItem>
               <TimelineSeparator>
                 <TimelineConnector />
                 <TimelineDot color="primary" variant="outlined">
-                  <StarBorderPurple500Icon sx={{height:"35px", width:"35px"}} />
+                  <StarBorderPurple500Icon
+                    sx={{ height: "35px", width: "35px" }}
+                  />
                 </TimelineDot>
                 <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
               </TimelineSeparator>
-              <TimelineContent sx={{ py: "25px", px: 2 ,}}>
+              <TimelineContent sx={{ py: "25px", px: 2 }}>
                 <Typography variant="h6" component="span">
-                ModX Buddy Program
+                  ModX Buddy Program
                 </Typography>
-               
               </TimelineContent>
             </TimelineItem>
           </Timeline>
         </Grid>
-
-       
       </Grid>
     </Box>
   );

@@ -18,7 +18,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 
-const page = () => {
+const Page = () => {
   const [open,setOpen]= useState(false)
   const handleClose = () => setOpen(false);
 
@@ -211,7 +211,7 @@ const page = () => {
           <ListItem>
             <ListItemText 
               primary="Day-to-Day Guidance" 
-              secondary="Need help opening a bank account, understanding public transport, or navigating your new environment? We're here for you."
+              secondary="Need help opening a bank account, understanding public transport, or navigating your new environment? We are here for you."
               primaryTypographyProps={{
                 sx: {
                   fontFamily: 'Arial, sans-serif', // Change font family
@@ -248,7 +248,7 @@ const page = () => {
           Why Choose ModX Education?
         </Typography>
         <Typography variant="body1" paragraph>
-          We know the challenges students face when pursuing education abroad—from choosing the right program to adjusting to life in a new country. That's why we are committed to offering a holistic approach, providing support for every little detail that matters along the way. With our personalised services and genuine commitment to your success, we ensure you feel confident, prepared, and empowered throughout your journey.
+          We know the challenges students face when pursuing education abroad—from choosing the right program to adjusting to life in a new country. Thats why we are committed to offering a holistic approach, providing support for every little detail that matters along the way. With our personalised services and genuine commitment to your success, we ensure you feel confident, prepared, and empowered throughout your journey.
         </Typography>
         <Typography variant="body1" sx={{ fontStyle: 'italic', fontWeight: 'bold' }}>
           At ModX Education, your goals are our mission. Let us help you turn your aspirations into achievements. Your dream of studying in the UK is just the beginning—lets make it a reality together.
@@ -270,4 +270,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

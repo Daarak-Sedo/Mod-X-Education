@@ -21,11 +21,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ContactModal from "./ContactModal";
 import { Grid } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const pages = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
-  { name: "Services", path: "/services" },
+  { name: "Services", path: "/services", child:[{name: "Services", path: "/services"},{name: "ModX Buddy Program", path: "/modx-buddy-program",child: [{name:"item1", path:"item1"},{name:"item2", path:"item2"},]}] },
   { name: "Resources", path: "/resources" },
   { name: "Contact", path: "/contact" },
 ];
@@ -34,6 +35,9 @@ const Header = () => {
   const pathname = usePathname();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  // Check if the screen width is less than or equal to 600px
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -77,19 +81,28 @@ const Header = () => {
               direction="row"
               spacing={3}
               alignItems="center"
-              // sx={{ display: { xs: "none", md: "flex" } }}
               sx={{
                 p: { xs: 2, lg: 0 },
                 flexWrap: { xs: "wrap", md: "nowrap" },
               }}
             >
-              <Stack direction="row" spacing={1} alignItems="center">
+              <Stack
+                direction="row"
+                spacing={1}
+                alignItems="center"
+                sx={{ display: { xs: "none", md: "flex" } }}
+              >
                 <EmailIcon color="primary" />
                 <Typography variant="body2" color="black">
                   contact@modxeducation.com
                 </Typography>
               </Stack>
-              <Stack direction="row" spacing={1} alignItems="center">
+              <Stack
+                direction="row"
+                spacing={1}
+                alignItems="center"
+                sx={{ display: { xs: "none", md: "flex" } }}
+              >
                 <WhatsAppIcon color="success" />
                 <Typography variant="body2" color="black">
                   +91 74082 52200
@@ -105,14 +118,15 @@ const Header = () => {
                   "&:hover": {
                     backgroundColor: "#F9B700",
                   },
+                  textTransform: "none",
                 }}
                 onClick={() => setIsContactModalOpen(true)}
               >
-                Claim Your Free Counselling Session
+                {isSmallScreen
+                  ? "Book a Session"
+                  : "Claim Your Free Counselling Session"}
               </Button>
             </Stack>
-
-           
           </Toolbar>
 
           {/* Navigation Links (Visible on medium and larger screens) */}
@@ -122,7 +136,7 @@ const Header = () => {
               display: { xs: "none", md: "flex" },
               justifyContent: "space-around",
               mb: 2,
-              mt:2
+              mt: 2,
             }}
           >
             {pages.map((page, index) => {
@@ -180,6 +194,20 @@ const Header = () => {
                 </ListItem>
               ))}
             </List>
+            <Stack mt={2} spacing={2} ml={1} mr={2}>
+              <Stack direction="row" spacing={1} alignItems="center">
+                <EmailIcon color="primary" />
+                <Typography variant="body2" color="black">
+                  contact@modxeducation.com
+                </Typography>
+              </Stack>
+              <Stack direction="row" spacing={1} alignItems="center">
+                <WhatsAppIcon color="success" />
+                <Typography variant="body2" color="black">
+                  +91 74082 52200
+                </Typography>
+              </Stack>
+            </Stack>
           </Box>
         </Drawer>
       </AppBar>

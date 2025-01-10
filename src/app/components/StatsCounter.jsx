@@ -8,19 +8,19 @@ import CountUp from 'react-countup';
 
 const stats = [
   {
-    value: 500,
+    value: 600,
     suffix: '+',
     label: 'Happy Students'
   },
   {
-    value: 20,
+    value:5,
     suffix: '+',
-    label: 'Partner Universities'
+    label: 'Years Experience'
   },
   {
-    value: 10,
+    value: 45000,
     suffix: '+',
-    label: 'Countries Explored'
+    label: 'Hours Councelling'
   }
 ];
 

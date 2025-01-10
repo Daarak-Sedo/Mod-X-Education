@@ -88,7 +88,7 @@ export default function LatestUpdates() {
               <Card
                 key={index}
                 sx={{
-                  maxWidth: 290,  //345
+                  maxWidth: 325,  //345
                   minWidth: 290,
                   display: "flex",
                   flexDirection: "column",

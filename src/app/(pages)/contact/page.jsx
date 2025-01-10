@@ -419,9 +419,7 @@ export default function Page() {
                 disablePortal
                 options={[
                   { name: "January", value: "january" },
-                  { name: "February", value: "february" },
-                  { name: "March", value: "march" },
-                  { name: "April", value: "april" },
+                  { name: "September", value: "September" },
                 ]}
                 getOptionLabel={(option) => option.name}
                 value={formik.values.intake}

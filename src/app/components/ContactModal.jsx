@@ -160,7 +160,7 @@ const ContactModal = ({ open, setOpen }) => {
               disablePortal
               options={[
                 { name: "January", value: "january" },
-                { name: "February", value: "february" },
+                { name: "September", value: "September" },
               ]}
               getOptionLabel={(option) => option.name}
               renderOption={(props, option) => (

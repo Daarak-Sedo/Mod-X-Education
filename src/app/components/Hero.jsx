@@ -80,48 +80,67 @@ export default function Hero() {
                   backgroundColor: "rgba(76, 72, 72, 0.5)",
                 }}
               >
-                <Container maxWidth="md" sx={{ mr: "40%" }}>
-                  <Typography
-                    variant="h3"
-                    align="center"
-                    color="white"
-                    gutterBottom
-                  >
-                    {image.title}
-                  </Typography>
-                  <Typography variant="h5" align="center" color="white">
-                    {image.subtitle}
-                  </Typography>
-                  <Typography
-                    variant="h4"
-                    sx={{ mb: 3, mt: 3, color: "secondry" }}
-                    align="center"
-                  >
-                    Ready to Get Started?
-                  </Typography>
+                <Box
+  sx={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  ml:5,
+    p: 2,
+  }}
+>
+  <Typography
+    variant="h3"
+    align="center"
+    color="white"
+    gutterBottom
+    sx={{
+      fontSize: { xs: "1.5rem", sm: "2rem", md: "2.5rem" },
+    }}
+  >
+    {image.title}
+  </Typography>
+  <Typography
+    variant="h5"
+    align="center"
+    color="white"
+    sx={{
+      fontSize: { xs: "1rem", sm: "1.2rem", md: "1.5rem" },
+    }}
+  >
+    {image.subtitle}
+  </Typography>
+  <Typography
+    variant="h4"
+    align="center"
+    sx={{
+      mb: 3,
+      mt: 3,
+      color: "secondary",
+      fontSize: { xs: "1.2rem", sm: "1.5rem", md: "2rem" },
+    }}
+  >
+    Ready to Get Started?
+  </Typography>
 
-                  <Button
-                    variant="contained"
-                    size="large"
-                    sx={{
-                      fontSize: "1.1rem",
-                      justifyContent: "center",
-                      ml: "30%",
-                      "&:hover": {
-                        bgcolor: "#0d47a1",
-                        backgroundColor: "#F9B700",
-                      },
+  <Button
+    variant="contained"
+    size="large"
+    sx={{
+      fontSize: { xs: "0.8rem", sm: "1rem", md: "1.1rem" },
+      display: "flex", // Ensure proper layout
+      justifyContent: "center", // Center-align the button's content
+      "&:hover": {
+        bgcolor: "#0d47a1",
+        backgroundColor: "#F9B700",
+      },
+    }}
+    onClick={() => setIsContactModalOpen(true)}
+  >
+    Book a Consultation
+  </Button>
+</Box>
 
-                      // color: "black",
-                      // "&:hover": {
-                      //   backgroundColor: "#F9B700",
-                      // },
-                    }}
-                    onClick={() => setIsContactModalOpen(true)}
-                  >
-                    Book a Consultation
-                  </Button>
-                </Container>
               </Box>
             </Box>
           ))}

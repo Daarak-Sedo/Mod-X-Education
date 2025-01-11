@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Box,
@@ -18,6 +19,7 @@ import WorkIcon from "@mui/icons-material/Work";
 import FamilyRestroomIcon from "@mui/icons-material/FamilyRestroom";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Image from "next/image";
+import { useRouter } from "next/navigation"; 
 
 
 const services = [
@@ -98,6 +100,7 @@ const services = [
 ];
 
 export default function ServicesPage() {
+  const router= useRouter()
   return (
     <Box sx={{ mb:2,mt:10 }}>
 
@@ -175,6 +178,28 @@ export default function ServicesPage() {
             </Grid>
           ))}
         </Box>
+
+         <Box textAlign="center" my={8}>
+                  <Typography variant="h4" sx={{ mb: 3, color: '#1a237e' }}>
+                    Want to Explore More about ModX Buddy Program ?
+                  </Typography>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    sx={{
+                      bgcolor: '#1a237e',
+                      px: 4,
+                      py: 1.5,
+                      fontSize: '1.1rem',
+                      '&:hover': {
+                        bgcolor: '#0d47a1'
+                      }
+                    }}
+                    onClick={()=>router.push("/modx-buddy-program")}
+                  >
+                 Click here
+                  </Button>
+                </Box>
 
     </Box>
   );

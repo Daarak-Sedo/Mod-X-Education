@@ -62,13 +62,30 @@ export default function ModXBuddyProgram() {
 
       <Box sx={{ mt: 4, mx: 6, mb: 10 }}>
         <Typography variant="body1" paragraph>
-          The ModX Buddy Program is a standout initiative designed to make
-          students feel supported, connected, and prepared for life in the UK.
-          Moving to a new country can be overwhelming, and having a trusted peer
-          who has already navigated the challenges can be a game-changer. This
-          program pairs each student with a dedicated ModX Buddy—a current or
-          former UK student who shares insights, advice, and real-world tips to
-          help them transition effortlessly.
+          The{" "}
+          <span
+            style={{
+              fontWeight: 700,
+              cursor: "pointer",
+            }}
+          >
+            ModX Buddy Program
+          </span>{" "}
+          is a standout initiative designed to make students feel supported,
+          connected, and prepared for life in the UK. Moving to a new country
+          can be overwhelming, and having a trusted peer who has already
+          navigated the challenges can be a game-changer. This program pairs
+          each student with a dedicated {" "}
+          <span
+            style={{
+              fontWeight: 700,
+              cursor: "pointer",
+            }}
+          >
+            ModX Buddy
+          </span>{" "}—a current or former UK
+          student who shares insights, advice, and real-world tips to help them
+          transition effortlessly.
         </Typography>
 
         {/* How It Works Section */}
@@ -140,10 +157,10 @@ export default function ModXBuddyProgram() {
                 boxShadow:
                   "0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)",
                 transition: "transform 0.3s, box-shadow 0.3s",
-                "&:hover": {
-                  boxShadow:
-                    "0px 6px 10px rgba(0,0,0,0.14), 0px 1px 18px rgba(0,0,0,0.12), 0px 3px 5px rgba(0,0,0,0.2)",
-                },
+                // "&:hover": {
+                //   boxShadow:
+                //     "0px 6px 10px rgba(0,0,0,0.14), 0px 1px 18px rgba(0,0,0,0.12), 0px 3px 5px rgba(0,0,0,0.2)",
+                // },
               }}
             >
               <Box sx={{ display: "flex", gap: 2 }}>
@@ -181,6 +198,7 @@ export default function ModXBuddyProgram() {
                       sx={{
                         fontFamily: "Arial, sans-serif", // Change font family
                         fontWeight: "bold", // Optional: make it bold
+                        color: "#2196f3",
                       }}
                     >
                       {feature.title}
@@ -261,11 +279,12 @@ export default function ModXBuddyProgram() {
                 sx={{
                   height: "100%",
                   borderRadius: "12px",
+                  background: "linear-gradient(145deg, #f0f4f8, #ffffff)",
                   boxShadow:
                     "0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)",
                   transition: "transform 0.3s, box-shadow 0.3s",
                   "&:hover": {
-                    transform: "scale(1.05)",
+                    transform: "scale(1.02)",
                     boxShadow:
                       "0px 6px 10px rgba(0,0,0,0.14), 0px 1px 18px rgba(0,0,0,0.12), 0px 3px 5px rgba(0,0,0,0.2)",
                   },
@@ -335,13 +354,9 @@ export default function ModXBuddyProgram() {
         >
           Our Values
         </Typography>
-        <Grid container spacing={3}>
-          {[
-            "Collaboration",
-            "Hard Work",
-            "Integrity",
-            "Community Involvement",
-          ].map((value, index) => (
+        <Grid container spacing={4} justifyContent="center">
+        {["Collaboration", "Hard Work", "Integrity", "Community Involvement"].map(
+          (value, index) => (
             <Grid item xs={12} sm={6} md={3} key={index}>
               <Card
                 sx={{
@@ -349,25 +364,51 @@ export default function ModXBuddyProgram() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  p: 2,
+                  justifyContent: "center",
+                  textAlign: "center",
+                  p: 3,
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                  transition: "transform 0.3s, box-shadow 0.3s",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.2)",
+                  },
+                  background: "linear-gradient(145deg, #f0f4f8, #ffffff)",
                 }}
               >
-                <Box sx={{ mb: 2 }}>{getValueIcon(value)}</Box>
+                <Box
+                  sx={{
+                    mb: 2,
+                    fontSize: "2rem",
+                    color: "secondary.main",
+                  }}
+                >
+                  {getValueIcon(value)}
+                </Box>
                 <Typography
                   variant="h6"
                   component="h4"
                   gutterBottom
-                  align="center"
+                  sx={{ fontFamily: "Arial, sans-serif", // Change font family
+                    fontWeight: "bold", // Optional: make it bold
+                    color: "#2196f3", }}
                 >
                   {value}
                 </Typography>
-                <Typography variant="body2" align="center">
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: "text.secondary",
+                  }}
+                >
                   {getValueDescription(value)}
                 </Typography>
               </Card>
             </Grid>
-          ))}
-        </Grid>
+          )
+        )}
+      </Grid>
       </Box>
     </Box>
   );

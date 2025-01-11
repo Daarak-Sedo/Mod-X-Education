@@ -64,7 +64,7 @@ const Header = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isServicesNestedMenus, setIsServicesNestedMenus] = useState(null)
-  console.log("isServicesNestedMenus",isServicesNestedMenus)
+  
 
 
   // Check if the screen width is less than or equal to 600px
@@ -96,7 +96,7 @@ const Header = () => {
             }}
           >
             {/* Left: Logo */}
-            <Box sx={{ display: { xs: "none", md: "flex"} }}>
+            <Box sx={{ display: { xs: "none", md: "flex", cursor:"pointer"} }} onClick={()=>     router.push("/")}>
               <Image
                 src={Logo}
                 alt="Logo"
@@ -177,25 +177,33 @@ const Header = () => {
               justifyContent: "space-around",
               mb: 2,
               mt: 2,
+              
             }}
           >
             {pages.map((page, index) => {
               const isActive = pathname === page.path;
               return (
-                <Link key={index} href={page.path} passHref onClick={handleCloseNavMenuOfServices}>
+                <Link key={index} href={page.path} passHref onClick={handleCloseNavMenuOfServices} >
                   <Typography
                     variant="body1"
                     sx={{
                       textDecoration: "none",
                       color: isActive ? "#F9B700" : "black",
+         
                       "&:hover": {
                         color: "#F9B700",
                       },
                     }}
-                    onClick={handleCloseNavMenuOfServices}
+                    onClick={()=>{handleCloseNavMenuOfServices()
+                 
+                    }}
                     // onMouseEnter={handleOpenNavMenuOfServices}
                     onMouseEnter={(event) => {
-                      if (page.name === "Services") {handleOpenNavMenuOfServices(event)} 
+                      if (page.name === "Services") {{handleOpenNavMenuOfServices(event)
+                        router.push("/services")
+                      
+                      } }
+                     
                     }}
                     
                    
@@ -283,6 +291,7 @@ const Header = () => {
       mt: 2, // Adds a 16px margin on top
     },
   }}
+  
 >
 <Box
   sx={{
@@ -291,13 +300,15 @@ const Header = () => {
     // backgroundColor: '#F9F6EF',
     padding: 2,
     // border: '1px solid #ccc',
+
   }}
   onMouseLeave={(event) => {
     handleCloseNavMenuOfServices();
  }}
+
 >
   {[servicesColumn1, servicesColumn2, servicesColumn3].map((column, colIndex) => (
-    <Box key={colIndex} sx={{ flex: 1, marginRight: colIndex < 2 ? 2 : 0 }}>
+    <Box key={colIndex} sx={{ flex: 1, marginRight: colIndex < 2 ? 2 : 0 }}           >
       {column.map((item, index) => (
         <Typography
           key={index}
@@ -311,7 +322,12 @@ const Header = () => {
               color: '#F9B700',
             },
           }}
-          onClick={()=>router.push("/modx-buddy-program")}
+          onClick={()=>{if(item==="ModX Buddy Program") {router.push("/modx-buddy-program")
+            setIsServicesNestedMenus(null)
+          }else{
+            setIsServicesNestedMenus(null)
+          }}}
+
         >
           {item}
         </Typography>

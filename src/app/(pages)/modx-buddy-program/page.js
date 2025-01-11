@@ -66,7 +66,7 @@ export default function ModXBuddyProgram() {
           students feel supported, connected, and prepared for life in the UK.
           Moving to a new country can be overwhelming, and having a trusted peer
           who has already navigated the challenges can be a game-changer. This
-          program pairs each student with a dedicated "ModX Buddy"—a current or
+          program pairs each student with a dedicated ModX Buddy—a current or
           former UK student who shares insights, advice, and real-world tips to
           help them transition effortlessly.
         </Typography>

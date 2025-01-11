@@ -24,6 +24,8 @@ import { Grid } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Logo from "../public/Modx-Logo.png";
+import { useRouter } from "next/navigation";
 
 
 
@@ -58,6 +60,7 @@ const servicesColumn3 = [
 
 const Header = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isServicesNestedMenus, setIsServicesNestedMenus] = useState(null)
@@ -89,15 +92,16 @@ const Header = () => {
               flexDirection: { xs: "row", md: "row" },
               justifyContent: "space-between",
               // alignItems: "center",
+              mt:1
             }}
           >
             {/* Left: Logo */}
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Box sx={{ display: { xs: "none", md: "flex"} }}>
               <Image
-                src="https://leapscholar.com/blog/wp-content/uploads/2022/11/LeapScholar-header-logo.svg"
+                src={Logo}
                 alt="Logo"
-                width={150}
-                height={50}
+                width={200}
+                height={45}
                 loading="lazy"
               />
             </Box>
@@ -307,6 +311,7 @@ const Header = () => {
               color: '#F9B700',
             },
           }}
+          onClick={()=>router.push("/modx-buddy-program")}
         >
           {item}
         </Typography>

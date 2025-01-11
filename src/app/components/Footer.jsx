@@ -12,6 +12,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Divider from '@mui/material/Divider';
 import Image from 'next/image';
+import Logo from "../public/Modx-Logo.png"
 
 const Footer = () => {
   return (
@@ -54,10 +55,10 @@ const Footer = () => {
       
        
           <Image
-          src="https://leapscholar.com/blog/wp-content/uploads/2022/11/LeapScholar-header-logo.svg"
+          src={Logo}
             alt="Company Logo"
             width={250} // Set width using props
-            height={50} 
+            height={45} 
             loading="lazy"
           />
       
@@ -83,15 +84,15 @@ const Footer = () => {
           </Grid>
         </Grid>
         {/* Copyright Section */}
-        <Box mt={5}>
-          <Typography variant="body2" color="text.secondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://your-website.com/">
-              Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-          </Typography>
+       
+         <Box sx={{  mt: 5 }}>
+          <Container>
+          
+            <Typography variant="body2" align="center">
+              © 2025 ModX Education. All rights reserved.
+            </Typography>
+           
+          </Container>
         </Box>
       </Box>
     </Box>

@@ -92,6 +92,7 @@ export default function Testimonials() {
             margin: 2,
             display: 'flex',
             flexDirection: 'column',
+            borderRadius:"10px",
             gap:2}}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }}>
               <Avatar

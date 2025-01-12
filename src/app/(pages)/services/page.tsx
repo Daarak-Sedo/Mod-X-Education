@@ -60,7 +60,7 @@ const services = [
     imageUrl: "https://studysmart.co.in/storage/uploads/service/1721818085.jpg",
   },
   {
-    title: "Interview Preparation-",
+    title: "Interview Preparation",
     description:
       "We provide three mock interview sessions for each shortlisted school. For London-based schools, we arrange one-on-one sessions with alumni.",
     imageUrl: "https://studysmart.co.in/storage/uploads/service/1721818055.jpg",
@@ -84,7 +84,7 @@ const services = [
     imageUrl: "https://studysmart.co.in/storage/uploads/service/1721817596.jpg",
   },
   {
-    title: "Post Departure Services",
+    title: "Post Admission Services",
     description:
       "Receive continued support after admission, including guidance on settling in, cultural orientation, and more.",
     imageUrl: "https://studysmart.co.in/storage/uploads/service/1721817493.jpg",
@@ -104,7 +104,7 @@ export default function ServicesPage() {
   return (
     <Box sx={{ mb:2,mt:10 }}>
 
-        <Box textAlign="center" mb={8} >
+        <Box textAlign="center" mb={10} mt={10} >
           <Typography
             variant="h2"
             component="h1"
@@ -121,8 +121,8 @@ export default function ServicesPage() {
             variant="h5"
             sx={{
               color: "#546e7a",
-              maxWidth: "800px",
-              mx: "auto",
+              // maxWidth: "800px",
+              // mx: "auto",
               mb: 4,
             }}
           >
@@ -139,6 +139,7 @@ export default function ServicesPage() {
               spacing={4}
               sx={{ my: 4, background: index % 2 === 0 ? "white" : "#F2F8FD",px:4}}
               direction={index % 2 === 0 ? "row" : "row-reverse"}
+              id={service.title.toLowerCase().replace(/\s+/g, '-')}
             >
               <Grid
                 item

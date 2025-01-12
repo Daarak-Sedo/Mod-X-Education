@@ -220,6 +220,8 @@ export default function MastersUniversitiesList() {
           textAlign: "center",
           maxWidth: "800px",
           margin: "0 auto 2rem",
+          color: "#546e7a",
+          
         }}
       >
         The UK is home to some of the best universities in the world, with

@@ -21,6 +21,12 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 const Page = () => {
   const [open,setOpen]= useState(false)
   const handleClose = () => setOpen(false);
+// Utility function to get ordinal suffixs
+const getOrdinal = (number) => {
+  const suffixes = ['th', 'st', 'nd', 'rd'];
+  const v = number % 100;
+  return number + (suffixes[(v - 20) % 10] || suffixes[v] || suffixes[0]);
+};
 
 
   return (
@@ -151,45 +157,66 @@ const Page = () => {
             }
           ].map((service, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card
-                  sx={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    transition: 'transform 0.2s',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: 6,
-                    },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      p: 3,
-                      textAlign: 'center',
-                      bgcolor: service.color,
-                      color: 'white'
-                    }}
-                  >
-                    {/* <IconComponent sx={{ fontSize: 50 }} /> */}
-                    <service.icon sx={{ fontSize: 50 }} />
-                  </Box>
-                  <CardContent sx={{ flexGrow: 1, textAlign: 'center' }}>
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="h2"
-                      sx={{ fontWeight: 600, color: '#1a237e' }}
-                    >
-                      {service.title}
-                    </Typography>
-                    <Typography color="text.secondary" sx={{ mb: 2 }}>
-                      {service.description}
-                    </Typography>
-                  
-                  </CardContent>
-                </Card>
-            </Grid>
+        <Card
+          sx={{
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            transition: 'transform 0.3s, box-shadow 0.3s',
+            '&:hover': {
+              transform: 'translateY(-8px)',
+              boxShadow: 6,
+            },
+            borderRadius:2 ,
+            overflow: 'hidden',
+          }}
+        >
+          <Box
+            sx={{
+              p: 3,
+              textAlign: 'center',
+              bgcolor: service.color,
+              color: 'white',
+              position: 'relative',
+            }}
+          >
+            <Typography
+              variant="h6"
+              sx={{
+                position: 'absolute',
+                left: 16,
+                top: 16,
+                bgcolor: 'rgba(0, 0, 0, 0.1)',
+                borderRadius: '50%',
+                width: 50,
+                height: 50,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 'bold',
+                color: 'white',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+              }}
+            >
+              {getOrdinal(index + 1)}
+            </Typography>
+            <service.icon sx={{ fontSize: 50 }} />
+          </Box>
+          <CardContent sx={{ flexGrow: 1, textAlign: 'center' }}>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="h2"
+              sx={{ fontWeight: 600, color: '#1a237e' }}
+            >
+              {service.title}
+            </Typography>
+            <Typography color="text.secondary" sx={{ mb: 2 }}>
+              {service.description}
+            </Typography>
+          </CardContent>
+        </Card>
+      </Grid>
           ))}
         </Grid>
       </Box>

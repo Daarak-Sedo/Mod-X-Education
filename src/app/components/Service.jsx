@@ -77,11 +77,13 @@ export default function Services() {
                 color="primary"
                 sx={{
                   height: "40px",
-                  width:"25%",
+                  width: {xs:"35%",md:"25%"},
                   mt:2,
                   '&:hover': {
                     background: "#F9B700",
-                  }
+                  },
+                  // padding: {xs:"25px", md:"0px"},
+                  textTransform:"none"
                 }}
                 onClick={() => router.push("/services")}
               >

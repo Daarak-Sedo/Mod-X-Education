@@ -130,7 +130,9 @@ const UniversityPage = () => {
            }}>
         Low Fee & Cheapest Universities in the UK for International Students 2025
       </Typography>
-      <Typography variant="body1" gutterBottom align="center" paragraph sx={{ mb: 12 }}>
+      <Typography variant="body1" gutterBottom align="center" paragraph sx={{ mb: 12,color: "#546e7a", }}
+
+      >
         Studying in the UK can be expensive, but there are a number of universities that offer low tuition fees for international students. Below are some of the most affordable universities for the academic year 2025, along with their popular courses and UK rankings.
       </Typography>
 

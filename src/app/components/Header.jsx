@@ -27,45 +27,61 @@ import MenuItem from "@mui/material/MenuItem";
 import Logo from "../public/Modx-Logo.png";
 import { useRouter } from "next/navigation";
 
-
-
 const pages = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
-  { name: "Services", path: "/services", child:[{name: "Services", path: "/services"},{name: "ModX Buddy Program", path: "/modx-buddy-program",child: [{name:"item1", path:"item1"},{name:"item2", path:"item2"},]}] },
+  {
+    name: "Services",
+    path: "/services",
+    child: [
+      { name: "Services", path: "/services" },
+      {
+        name: "ModX Buddy Program",
+        path: "/modx-buddy-program",
+        child: [
+          { name: "item1", path: "item1" },
+          { name: "item2", path: "item2" },
+        ],
+      },
+    ],
+  },
   { name: "Resources", path: "/resources" },
   { name: "Contact", path: "/contact" },
 ];
 
 const servicesColumn1 = [
-  'Comprehensive Education',
-  'Pre Admission Services',
-  'ModX Buddy Program',
-  'Applications & Admission Process',
-  'Comprehensive Education Counselling',
-]
+  "Comprehensive Education Counselling",
+  "Post Admission Services",
+  "ModX Buddy Program",
+  // 'Applications & Admission Process',
+  // 'Comprehensive Education Counselling',
+];
 
 const servicesColumn2 = [
-  'Course and University short listing',
-  'Dedicated writer for SOP',
-  'visa Application Guide',
-  'Interview Preparation',
-]
+  // 'Course and University short listing',
+  "Course Shortlisting",
+  "University Shortlisting",
+  "Dedicated Writer for SOPs",
+  "visa Application Guide",
+  "Interview Preparation",
+];
 
 const servicesColumn3 = [
-  'Essay brain stroming and Unlimited Editing Sessions',
-  'Loan Assistance',
-  'Accommodation',
-]
+  // 'Essay brain stroming and Unlimited Editing Sessions',
+  "Essay Brainstorming Sessions",
+  "Loan Assistance",
+  "Accommodation",
+];
+
+const resourcesPages = ["Blog", "Testimonials"];
 
 const Header = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [isServicesNestedMenus, setIsServicesNestedMenus] = useState(null)
-  
-
+  const [isServicesNestedMenus, setIsServicesNestedMenus] = useState(null);
+  const [isResourcesNestedMenus, setIsResourcesNestedMenus] = useState(null);
 
   // Check if the screen width is less than or equal to 600px
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -75,12 +91,37 @@ const Header = () => {
   };
 
   const handleOpenNavMenuOfServices = (event) => {
-    setIsServicesNestedMenus(event.currentTarget)
-  }
+    setIsResourcesNestedMenus(null); // Close Resources menu
+    setIsServicesNestedMenus(event.currentTarget);
+  };
 
   const handleCloseNavMenuOfServices = () => {
-    setIsServicesNestedMenus(null)
-  }
+    setIsServicesNestedMenus(null);
+  };
+
+  const handleOpenNavMenuOfResources = (event) => {
+    setIsServicesNestedMenus(null); // Close Services menu
+    setIsResourcesNestedMenus(event.currentTarget);
+  };
+
+  const handleCloseNavMenuOfResources = () => {
+    setIsResourcesNestedMenus(null);
+  };
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToPerticularSectionInResourcesPage = (id) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -92,11 +133,14 @@ const Header = () => {
               flexDirection: { xs: "row", md: "row" },
               justifyContent: "space-between",
               // alignItems: "center",
-              mt:1
+              mt: 1,
             }}
           >
             {/* Left: Logo */}
-            <Box sx={{ display: { xs: "none", md: "flex", cursor:"pointer"} }} onClick={()=>     router.push("/")}>
+            <Box
+              sx={{ display: { xs: "none", md: "flex", cursor: "pointer" } }}
+              onClick={() => router.push("/")}
+            >
               <Image
                 src={Logo}
                 alt="Logo"
@@ -177,37 +221,43 @@ const Header = () => {
               justifyContent: "space-around",
               mb: 2,
               mt: 2,
-              
             }}
           >
             {pages.map((page, index) => {
               const isActive = pathname === page.path;
               return (
-                <Link key={index} href={page.path} passHref onClick={handleCloseNavMenuOfServices} >
+                <Link
+                  key={index}
+                  href={page.path}
+                  passHref
+                  onClick={handleCloseNavMenuOfServices}
+                >
                   <Typography
                     variant="body1"
                     sx={{
                       textDecoration: "none",
                       color: isActive ? "#F9B700" : "black",
-         
+
                       "&:hover": {
                         color: "#F9B700",
                       },
                     }}
-                    onClick={()=>{handleCloseNavMenuOfServices()
-                 
+                    onClick={() => {
+                      handleCloseNavMenuOfServices();
                     }}
                     // onMouseEnter={handleOpenNavMenuOfServices}
                     onMouseEnter={(event) => {
-                      if (page.name === "Services") {{handleOpenNavMenuOfServices(event)
-                        router.push("/services")
-                      
-                      } }
-                     
+                      if (page.name === "Services") {
+                        {
+                          handleOpenNavMenuOfServices(event);
+                          router.push("/services");
+                        }
+                      }
+                      if (page.name === "Resources") {
+                        handleOpenNavMenuOfResources(event);
+                        router.push("/resources");
+                      }
                     }}
-                    
-                   
-                    
                   >
                     {page.name}
                   </Typography>
@@ -269,75 +319,149 @@ const Header = () => {
       </AppBar>
       <ContactModal open={isContactModalOpen} setOpen={setIsContactModalOpen} />
       <Menu
-  id="menu-appbar"
-  anchorEl={isServicesNestedMenus}
-  anchorOrigin={{
-    vertical: 'bottom',
-    horizontal: 'left',
-  }}
-  keepMounted
-  transformOrigin={{
-    vertical: 'top',
-    horizontal: 'left',
-  }}
-  open={Boolean(isServicesNestedMenus)}
-  onClose={handleCloseNavMenuOfServices}
-  onMouseLeave={handleCloseNavMenuOfServices}
-  // sx={{
-  //   display: { xs: 'block', md: 'block' }, // Ensure it shows on all screen sizes
-  // }}
-  PaperProps={{
-    sx: {
-      mt: 2, // Adds a 16px margin on top
-    },
-  }}
-  
->
-<Box
-  sx={{
-    display: 'flex',
-    justifyContent: 'space-between',
-    // backgroundColor: '#F9F6EF',
-    padding: 2,
-    // border: '1px solid #ccc',
-
-  }}
-  onMouseLeave={(event) => {
-    handleCloseNavMenuOfServices();
- }}
-
->
-  {[servicesColumn1, servicesColumn2, servicesColumn3].map((column, colIndex) => (
-    <Box key={colIndex} sx={{ flex: 1, marginRight: colIndex < 2 ? 2 : 0 }}           >
-      {column.map((item, index) => (
-        <Typography
-          key={index}
+        id="menu-appbar"
+        anchorEl={isServicesNestedMenus}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        keepMounted
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
+        open={Boolean(isServicesNestedMenus)}
+        onClose={handleCloseNavMenuOfServices}
+        onMouseLeave={handleCloseNavMenuOfServices}
+        // sx={{
+        //   display: { xs: 'block', md: 'block' }, // Ensure it shows on all screen sizes
+        // }}
+        PaperProps={{
+          sx: {
+            mt: 2, // Adds a 16px margin on top
+          },
+        }}
+      >
+        <Box
           sx={{
-            color: '#333',
-            marginBottom: 1,
-            borderBottom: '1px solid #e0e0e0',
-            paddingBottom: 1,
-            cursor: 'pointer',
-            '&:hover': {
-              color: '#F9B700',
-            },
+            display: "flex",
+            justifyContent: "space-between",
+            // backgroundColor: '#F9F6EF',
+            padding: 2,
+            // border: '1px solid #ccc',
           }}
-          onClick={()=>{if(item==="ModX Buddy Program") {router.push("/modx-buddy-program")
-            setIsServicesNestedMenus(null)
-          }else{
-            setIsServicesNestedMenus(null)
-          }}}
-
+          onMouseLeave={(event) => {
+            handleCloseNavMenuOfServices();
+          }}
         >
-          {item}
-        </Typography>
-      ))}
-    </Box>
-  ))}
-</Box>
+          {[servicesColumn1, servicesColumn2, servicesColumn3].map(
+            (column, colIndex) => (
+              <Box
+                key={colIndex}
+                sx={{ flex: 1, marginRight: colIndex < 2 ? 2 : 0 }}
+              >
+                {column.map((item, index) => (
+                  <Typography
+                    key={index}
+                    sx={{
+                      color: "#333",
+                      marginBottom: 1,
+                      borderBottom: "1px solid #e0e0e0",
+                      paddingBottom: 1,
+                      cursor: "pointer",
+                      "&:hover": {
+                        color: "#F9B700",
+                      },
+                    }}
+                    onClick={() => {
+                      if (item === "ModX Buddy Program") {
+                        router.push("/modx-buddy-program");
+                        setIsServicesNestedMenus(null);
+                      } else {
+                        setIsServicesNestedMenus(null);
+                      }
+                      scrollToSection(item.toLowerCase().replace(/\s+/g, "-"));
+                    }}
+                  >
+                    {item}
+                  </Typography>
+                ))}
+              </Box>
+            )
+          )}
+        </Box>
+      </Menu>
 
-</Menu>
+      <Menu
+        id="resources-menu-appbar"
+        anchorEl={isResourcesNestedMenus}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        keepMounted
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
+        open={Boolean(isResourcesNestedMenus)}
+        onClose={handleCloseNavMenuOfResources}
+        onMouseLeave={handleCloseNavMenuOfResources}
+        // sx={{
+        //   display: { xs: 'block', md: 'block' }, // Ensure it shows on all screen sizes
+        // }}
+        PaperProps={{
+          sx: {
+            mt: 2, // Adds a 16px margin on top
+          },
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column", // Arrange items in a column
+            justifyContent: "space-between",
+            // padding: 2, // Adjust padding as needed
+            py: 2,
+            px: 1,
+          }}
+          onMouseLeave={() => handleCloseNavMenuOfResources()}
+        >
+          {resourcesPages?.map((item, index) => (
+            <Box
+              key={index}
+              sx={{
+                display: "flex",
+                flexDirection: "column", // Ensure each item has a column direction
+                // marginBottom: 2, // Add spacing between rows
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "#333",
+                  marginBottom: 1,
+                  borderBottom: "1px solid #e0e0e0",
+                  // borderTop: "1px solid #e0e0e0",
+                  paddingBottom: 1,
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "#F9B700",
+                  },
+                }}
+                onClick={() => {
+                  setIsResourcesNestedMenus(null);
 
+                  scrollToPerticularSectionInResourcesPage(
+                    item.toLowerCase().replace(/\s+/g, "-")
+                  );
+                }}
+              >
+                {item}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
+      </Menu>
     </>
   );
 };
